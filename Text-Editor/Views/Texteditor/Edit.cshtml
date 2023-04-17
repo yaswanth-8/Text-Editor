@@ -1,0 +1,20 @@
+﻿@model TextEditor
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h3 class="text-success mb-4">Edit File</h3>
+<form method="post">
+    <input asp-for="Id" class="form-control" type="hidden" />
+    <div class="mb-3">
+        <label asp-for="Name"><b>File name</b></label>
+        <input asp-for="Name" class="form-control" type="text" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <label asp-for="Content"><b>Content</b></label>
+    <textarea asp-for="Content" class="form-control"></textarea>
+    <br />
+    <button type="submit" class="btn btn-success" style="width:150px;">
+        Save
+    </button>
+</form>

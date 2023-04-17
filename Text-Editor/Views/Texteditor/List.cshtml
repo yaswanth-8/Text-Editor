@@ -7,8 +7,13 @@
     <h1 class="text-center">List of Files</h1>
      @foreach (var obj in Model)
         {
-        <div class="col-md-4 mb-3">
-            <button type="button" class="btn btn-primary btn-block">@obj.Name</button>
+        <div class="mb-3 d-flex justify-content-between">
+            <div class="mr-auto">
+                <a type="button" class="btn btn-primary" asp-action="Edit" asp-route-itemid="@obj.Id">@obj.Name</a>
+            </div>
+            <div class="ml-auto">
+                <a type="button" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-itemid="@obj.Id">X</a>
+            </div>
         </div>
         <hr/>
         }
