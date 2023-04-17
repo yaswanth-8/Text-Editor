@@ -32,5 +32,23 @@ namespace Text_Editor.Controllers
             _Connection.Close();
             return View();
         }
+
+        public IActionResult List()
+        {
+            SqlConnection _Connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            _Connection.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Text_Editor", _Connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<TextEditor> list = new List<TextEditor>();
+            while (reader.Read())
+            {
+                TextEditor file = new TextEditor();
+                file.Id = reader.GetInt32("Id");
+                file.Name = reader.GetString("File_Name");
+                file.Content = reader.GetString("Content");
+                list.Add(file);
+            }
+            return View(list);
+        }
     }
 }
