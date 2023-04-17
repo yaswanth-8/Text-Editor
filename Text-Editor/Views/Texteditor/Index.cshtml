@@ -3,7 +3,7 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container">
+<form method="post">
     <div class="mb-3">
         <label asp-for="Name"><b>File name</b></label>
         <input asp-for="Name" class="form-control" type="text" />
@@ -12,5 +12,7 @@
     <label asp-for="Content"><b>Content</b></label>
     <textarea asp-for="Content" class="form-control" ></textarea>
     <br />
-    <a class="btn btn-primary">Save</a>
-</div>
+    <button type="submit" class="btn btn-success" style="width:150px;">
+        Save
+    </button>
+</form>
